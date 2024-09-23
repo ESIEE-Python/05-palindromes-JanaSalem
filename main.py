@@ -1,18 +1,20 @@
-#### Fonction secondaire
+"""Ce code permet de trouver les palindrome"""
 
+def ispalindrome(s):
+    """voici le code :
+    j'utilise la fonction .issalnum gardée
+    uniquement les lettres et les chifres
+    (suprime ponctuation etc...) """
 
-def ispalindrome(p):
+    change_accent = str.maketrans("éèêëàâäôöîïùûç", "eeeeaaaooiiuuc")
+    s = s.lower()
+    texte_sans_accent = ''.join(c for c in s.translate(change_accent).lower() if c.isalnum())
 
-    # votre code ici
-    
-    return False
-
-#### Fonction principale
-
+    return texte_sans_accent == texte_sans_accent[::-1] # Je vérifie si il est palindrome
 
 def main():
 
-    # vos appels à la fonction secondaire ici
+    """Ma fonction qui va executer la 1er"""
 
     for s in ["radar", "kayak", "level", "rotor", "civique", "deifie"]:
         print(s, ispalindrome(s))
